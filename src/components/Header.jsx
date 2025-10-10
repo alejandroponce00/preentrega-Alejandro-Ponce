@@ -10,7 +10,7 @@ function Header({ cartItemsCount }) {
     <header className="bg-white shadow-md sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 py-4">
         <div className="header">
-          <span className="header-logo">MercadoShop</span>
+           <h1 className="text-2xl font-bold  text-violet-950 ">Mi Ropa Shop</h1>
           <div className="header-search">
             <input type="text" placeholder="Buscar productos, marcas y más..." />
           </div>
@@ -20,7 +20,7 @@ function Header({ cartItemsCount }) {
         <div className="flex items-center justify-between mt-4">
           <Link to="/" className="flex items-center space-x-2">
             <Package className="w-8 h-8 text-blue-600" />
-            <h1 className="text-2xl font-bold text-gray-900">Mi eCommerce</h1>
+           
           </Link>
 
           {/* Desktop Navigation */}
