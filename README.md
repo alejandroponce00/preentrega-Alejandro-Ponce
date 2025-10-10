@@ -7,7 +7,8 @@
 
 Este proyecto es una **preentrega** del curso de **React** en **Talento Tech**, desarrollado por **Alejandro Ponce**.  
 Se trata de una aplicación de **e-commerce** construida con **React**, utilizando **Vite.js** para un entorno de desarrollo rápido y eficiente, y consumiendo datos desde **MockAPI** para simular la gestión de productos.
-
+El proyecto está desplegado en: https://preentrega-alejandro-ponce.vercel.app/ asi que podes probarlo.
+Todavia falta bastante para que quede terminado.
 ---
 
 ## 🚀 Tecnologías utilizadas
