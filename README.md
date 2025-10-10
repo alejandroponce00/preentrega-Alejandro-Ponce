@@ -1,16 +1,38 @@
-# React + Vite
+# 🛍️ E-Commerce con React y Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Demo del proyecto](./public/demo.gif)
+> 💡 *Agrega aquí una imagen o GIF mostrando tu aplicación en acción (por ejemplo: `./public/demo.png` o una URL externa).*
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Este proyecto es una **preentrega** del curso de **React** en **Talento Tech**, desarrollado por **Alejandro Ponce**.  
+Se trata de una aplicación de **e-commerce** construida con **React**, utilizando **Vite.js** para un entorno de desarrollo rápido y eficiente, y consumiendo datos desde **MockAPI** para simular la gestión de productos.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🚀 Tecnologías utilizadas
 
-## Expanding the ESLint configuration
+- ⚛️ **React** – Librería principal para construir la interfaz.  
+- ⚡ **Vite.js** – Herramienta de bundling y desarrollo ultra rápida.  
+- 🌐 **React DOM** – Manejo del DOM y renderizado eficiente.  
+- 🔗 **MockAPI** – API falsa para simular operaciones CRUD de productos.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 📦 Características principales
+
+- 📋 Listado dinámico de productos obtenidos desde MockAPI.  
+- 🛒 Sistema básico de carrito de compras.  
+- 🔍 Filtrado y visualización de productos.  
+- 🧭 Navegación con React Router DOM.  
+- 💅 Estilos personalizados (puedes mencionar CSS Modules, Tailwind, etc. si los usaste).  
+
+---
+
+## ⚙️ Instalación y uso
+
+🧑‍💻 Autor
+
+Alejandro Ponce
+📘 Curso: React – Talento Tech
+📅 Año: 2025

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 function ProductCard({ product, addToCart }) {
   const [isAdding, setIsAdding] = useState(false);
-  const [imageError, setImageError] = useState(false);
+  
 
   const handleAddToCart = (e) => {
     e.preventDefault();
@@ -24,7 +24,7 @@ function ProductCard({ product, addToCart }) {
         <img 
           src={imageUrl} 
           alt={product.name || 'Producto'}
-          onError={() => setImageError(true)}
+          
         />
       </Link>
       <div className="product-title">
