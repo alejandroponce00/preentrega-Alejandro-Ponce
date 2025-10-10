@@ -1,7 +1,7 @@
 # 🛍️ E-Commerce con React y Vite
 
-![Demo del proyecto](./public/demo.gif)
-> 💡 *Agrega aquí una imagen o GIF mostrando tu aplicación en acción (por ejemplo: `./public/demo.png` o una URL externa).*
+![Demo del proyecto](./public/demo.png)
+> 💡 `./public/demo.png`
 
 ---
 
