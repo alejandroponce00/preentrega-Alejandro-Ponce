@@ -12,7 +12,7 @@ function Header({ cartItemsCount }) {
         <div className="header">
            <h1 className="text-2xl font-bold  text-violet-950 ">Mi Ropa Shop</h1>
           <div className="header-search">
-            <input type="text" placeholder="Buscar productos, marcas y más..." />
+            
           </div>
           {/* Aquí puedes agregar iconos de usuario/carrito si lo deseas */}
         </div>

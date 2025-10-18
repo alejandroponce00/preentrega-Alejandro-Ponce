@@ -11,6 +11,7 @@ function App() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [search, setSearch] = useState("");
 
   // useEffect para cargar productos desde MockAPI
   useEffect(() => {
@@ -73,7 +74,7 @@ function App() {
 
   return (
     <Router>
-      <Layout cartItemsCount={cartItemsCount}>
+      <Layout cartItemsCount={cartItemsCount} search={search} setSearch={setSearch}>
         <Routes>
           <Route 
             path="/" 
@@ -83,6 +84,8 @@ function App() {
                 loading={loading}
                 error={error}
                 addToCart={addToCart}
+                search={search}
+                setSearch={setSearch}
               />
             } 
           />

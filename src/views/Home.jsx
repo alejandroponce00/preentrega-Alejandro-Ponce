@@ -1,16 +1,20 @@
 import React, { useState } from 'react';
 import ProductList from '../components/ProductList';
 
-function Home({ products, loading, error, addToCart }) {
+function Home({ products, loading, error, addToCart, search, setSearch }) {
   const [selectedCategory, setSelectedCategory] = useState('all');
 
   // Obtener categorías únicas
   const categories = ['all', ...new Set(products.map(p => p.category))];
 
-  // Filtrar productos por categoría
-  const filteredProducts = selectedCategory === 'all' 
-    ? products 
-    : products.filter(p => p.category === selectedCategory);
+  // Filtrar productos por búsqueda y categoría
+  const filteredProducts = products.filter(p => {
+    const matchesCategory = selectedCategory === 'all' || p.category === selectedCategory;
+    const name = p.name || "";
+    const description = p.description || "";
+    const matchesSearch = name.toLowerCase().includes(search.toLowerCase()) || description.toLowerCase().includes(search.toLowerCase());
+    return matchesCategory && matchesSearch;
+  });
 
   if (loading) {
     return (
@@ -37,6 +41,17 @@ function Home({ products, loading, error, addToCart }) {
       <div className="mb-8">
         <h2 className="text-3xl font-bold text-gray-900 mb-4">Nuestros Productos</h2>
         
+        {/* Barra de búsqueda */}
+        <div className="mb-4">
+          <input
+            type="text"
+            placeholder="Buscar productos, marcas y más..."
+            value={search}
+            onChange={e => setSearch(e.target.value)}
+            className="w-full max-w-lg px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+        </div>
+
         {/* Filtro de Categorías */}
         <div className="flex flex-wrap gap-2">
           {categories.map(category => (
