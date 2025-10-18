@@ -15,10 +15,11 @@ export const fetchProducts = async () => {
     // Transformar datos de MockAPI para agregar campos faltantes
     const transformedData = data.map(item => ({
       ...item,
+      name: item.name || item.nombre || item.title || 'Producto sin nombre',
       image: item.avatar || item.image,
       price: item.price || Math.floor(Math.random() * 100) + 10,
       category: item.category || 'general',
-      description: item.description || `Producto de alta calidad: ${item.name}`
+      description: item.description || `Producto de alta calidad: ${item.name || item.nombre || item.title}`
     }));
     
     return transformedData;
