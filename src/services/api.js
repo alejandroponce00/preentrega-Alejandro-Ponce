@@ -1,6 +1,6 @@
 // API Service - Manejo de llamadas a MockAPI
 
-const API_URL = 'https://68e84b43f2707e6128ca62c5.mockapi.io/products';
+const API_URL = 'https://68f3ac9dfd14a9fcc42981d8.mockapi.io/productos';
 
 export const fetchProducts = async () => {
   try {

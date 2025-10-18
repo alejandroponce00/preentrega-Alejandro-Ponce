@@ -1,7 +1,7 @@
 import React from 'react';
 import ProductCard from './ProductCard';
 
-function ProductList({ products, onAddToCart }) {
+function ProductList({ products, addToCart }) {
   if (products.length === 0) {
     return (
       <div className="text-center py-12">
@@ -16,7 +16,7 @@ function ProductList({ products, onAddToCart }) {
         <ProductCard
           key={product.id}
           product={product}
-          addToCart={onAddToCart}
+          addToCart={addToCart}
         />
       ))}
     </div>
