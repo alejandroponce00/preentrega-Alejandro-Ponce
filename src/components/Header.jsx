@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ShoppingCart, Package, Home, Menu, X } from 'lucide-react';
+import { ShoppingCart, Package, Home, Menu, X, User } from 'lucide-react';
 
-function Header({ cartItemsCount }) {
+function Header({ cartItemsCount, user, logout }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
 
@@ -14,13 +14,11 @@ function Header({ cartItemsCount }) {
           <div className="header-search">
             
           </div>
-          {/* Aquí puedes agregar iconos de usuario/carrito si lo deseas */}
         </div>
 
         <div className="flex items-center justify-between mt-4">
           <Link to="/" className="flex items-center space-x-2">
             <Package className="w-8 h-8 text-blue-600" />
-           
           </Link>
 
           {/* Desktop Navigation */}
@@ -53,6 +51,40 @@ function Header({ cartItemsCount }) {
                 </span>
               )}
             </Link>
+
+            {user ? (
+              <>
+                <Link
+                  to="/admin"
+                  className={`flex items-center space-x-2 px-4 py-2 rounded-lg transition ${
+                    location.pathname === '/admin' 
+                      ? 'bg-violet-700 text-white' 
+                      : 'text-gray-700 hover:bg-gray-100'
+                  }`}
+                >
+                  <User className="w-5 h-5" />
+                  <span>Admin</span>
+                </Link>
+                <button
+                  onClick={logout}
+                  className="ml-2 px-4 py-2 rounded-lg bg-red-500 text-white hover:bg-red-600 transition"
+                >
+                  Cerrar sesión
+                </button>
+              </>
+            ) : (
+              <Link
+                to="/login"
+                className={`flex items-center space-x-2 px-4 py-2 rounded-lg transition ${
+                  location.pathname === '/login' 
+                    ? 'bg-violet-700 text-white' 
+                    : 'text-gray-700 hover:bg-gray-100'
+                }`}
+              >
+                <User className="w-5 h-5" />
+                <span>Login</span>
+              </Link>
+            )}
           </nav>
 
           {/* Mobile Menu Button */}
@@ -99,6 +131,42 @@ function Header({ cartItemsCount }) {
                 </span>
               )}
             </Link>
+
+            {user ? (
+              <>
+                <Link
+                  to="/admin"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`w-full flex items-center space-x-2 px-4 py-3 rounded-lg transition ${
+                    location.pathname === '/admin' 
+                      ? 'bg-violet-700 text-white' 
+                      : 'text-gray-700 hover:bg-gray-100'
+                  }`}
+                >
+                  <User className="w-5 h-5" />
+                  <span>Admin</span>
+                </Link>
+                <button
+                  onClick={() => { setMobileMenuOpen(false); logout(); }}
+                  className="w-full mt-2 px-4 py-2 rounded-lg bg-red-500 text-white hover:bg-red-600 transition"
+                >
+                  Cerrar sesión
+                </button>
+              </>
+            ) : (
+              <Link
+                to="/login"
+                onClick={() => setMobileMenuOpen(false)}
+                className={`w-full flex items-center space-x-2 px-4 py-3 rounded-lg transition ${
+                  location.pathname === '/login' 
+                    ? 'bg-violet-700 text-white' 
+                    : 'text-gray-700 hover:bg-gray-100'
+                }`}
+              >
+                <User className="w-5 h-5" />
+                <span>Login</span>
+              </Link>
+            )}
           </nav>
         )}
       </div>

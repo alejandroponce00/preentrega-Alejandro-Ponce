@@ -1,9 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React, { useState, useEffect, useContext } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
 import Home from './views/Home';
 import Cart from './views/Cart';
 import ProductDetail from './views/ProductDetail';
+import Login from './components/Login';
+import PrivateRoute from './components/PrivateRoute';
+import { AuthContext } from './context/AuthContext';
 import { fetchProducts } from './services/api';
 
 function App() {
@@ -12,6 +15,8 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [search, setSearch] = useState("");
+
+  const { user, logout } = useContext(AuthContext);
 
   // useEffect para cargar productos desde MockAPI
   useEffect(() => {
@@ -73,45 +78,58 @@ function App() {
   const cartItemsCount = cart.reduce((total, item) => total + item.quantity, 0);
 
   return (
-    <Router>
-      <Layout cartItemsCount={cartItemsCount} search={search} setSearch={setSearch}>
-        <Routes>
-          <Route 
-            path="/" 
-            element={
-              <Home 
-                products={products}
-                loading={loading}
-                error={error}
-                addToCart={addToCart}
-                search={search}
-                setSearch={setSearch}
-              />
-            } 
-          />
-          <Route 
-            path="/cart" 
-            element={
-              <Cart 
-                cart={cart}
-                updateQuantity={updateQuantity}
-                removeFromCart={removeFromCart}
-                cartTotal={cartTotal}
-              />
-            } 
-          />
-          <Route 
-            path="/product/:id" 
-            element={
-              <ProductDetail 
-                products={products}
-                addToCart={addToCart}
-              />
-            } 
-          />
-        </Routes>
-      </Layout>
-    </Router>
+    <Layout cartItemsCount={cartItemsCount} search={search} setSearch={setSearch} user={user} logout={logout}>
+      <Routes>
+        <Route 
+          path="/" 
+          element={
+            <Home 
+              products={products}
+              loading={loading}
+              error={error}
+              addToCart={addToCart}
+              search={search}
+              setSearch={setSearch}
+            />
+          } 
+        />
+        <Route 
+          path="/cart" 
+          element={
+            <Cart 
+              cart={cart}
+              updateQuantity={updateQuantity}
+              removeFromCart={removeFromCart}
+              cartTotal={cartTotal}
+            />
+          } 
+        />
+        <Route 
+          path="/product/:id" 
+          element={
+            <ProductDetail 
+              products={products}
+              addToCart={addToCart}
+            />
+          } 
+        />
+        <Route 
+          path="/login" 
+          element={<Login />} 
+        />
+        <Route 
+          path="/admin" 
+          element={
+            <PrivateRoute>
+              <div>
+                <h2>Panel de Admin</h2>
+                <p>Solo visible si estás autenticado.</p>
+              </div>
+            </PrivateRoute>
+          } 
+        />
+      </Routes>
+    </Layout>
   );
 }
 
