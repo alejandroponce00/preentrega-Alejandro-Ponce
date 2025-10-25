@@ -18,23 +18,25 @@ function App() {
 
   const { user, logout } = useContext(AuthContext);
 
-  // useEffect para cargar productos desde MockAPI
   useEffect(() => {
-    const loadProducts = async () => {
-      try {
-        setLoading(true);
-        setError(null);
-        const data = await fetchProducts();
-        setProducts(data);
-      } catch (err) {
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    loadProducts();
-  }, []);
+    if (user) {
+      const loadProducts = async () => {
+        try {
+          setLoading(true);
+          setError(null);
+          const data = await fetchProducts();
+          setProducts(data);
+        } catch (err) {
+          setError(err.message);
+        } finally {
+          setLoading(false);
+        }
+      };
+      loadProducts();
+    } else {
+      setProducts([]);
+    }
+  }, [user]);
 
   // Función para agregar productos al carrito
   const addToCart = (product) => {
@@ -83,34 +85,42 @@ function App() {
         <Route 
           path="/" 
           element={
-            <Home 
-              products={products}
-              loading={loading}
-              error={error}
-              addToCart={addToCart}
-              search={search}
-              setSearch={setSearch}
-            />
+            user ? (
+              <Home 
+                products={products}
+                loading={loading}
+                error={error}
+                addToCart={addToCart}
+                search={search}
+                setSearch={setSearch}
+              />
+            ) : (
+              <Login />
+            )
           } 
         />
         <Route 
           path="/cart" 
           element={
-            <Cart 
-              cart={cart}
-              updateQuantity={updateQuantity}
-              removeFromCart={removeFromCart}
-              cartTotal={cartTotal}
-            />
+            <PrivateRoute>
+              <Cart 
+                cart={cart}
+                updateQuantity={updateQuantity}
+                removeFromCart={removeFromCart}
+                cartTotal={cartTotal}
+              />
+            </PrivateRoute>
           } 
         />
         <Route 
           path="/product/:id" 
           element={
-            <ProductDetail 
-              products={products}
-              addToCart={addToCart}
-            />
+            <PrivateRoute>
+              <ProductDetail 
+                products={products}
+                addToCart={addToCart}
+              />
+            </PrivateRoute>
           } 
         />
         <Route 
