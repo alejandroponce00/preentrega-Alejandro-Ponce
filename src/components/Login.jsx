@@ -22,6 +22,7 @@ const Login = () => {
   return (
     <form onSubmit={handleSubmit} style={{ maxWidth: 300, margin: "2rem auto", display: "flex", flexDirection: "column", gap: 12 }}>
       <h2>Iniciar Sesión</h2>
+      <h5 className="colour-red">Importante:Para ingresar ingrese estos Datos <br /> usuario:admin <br /> contraseña:1234</h5>
       {error && <p style={{ color: "red" }}>{error}</p>}
       <input
         type="text"
