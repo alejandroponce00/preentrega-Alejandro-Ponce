@@ -5,11 +5,10 @@
 
 ---
 
-Este proyecto es una **preentrega** del curso de **React** en **Talento Tech**, desarrollado por **Alejandro Ponce**.  
+Este proyecto es una **entrega final** del curso de **React** en **Talento Tech**, desarrollado por **Alejandro Ponce**.  
 Se trata de una aplicación de **e-commerce** construida con **React**, utilizando **Vite.js** para un entorno de desarrollo rápido y eficiente, y consumiendo datos desde **MockAPI** para simular la gestión de productos.
 El proyecto está desplegado en: https://preentrega-alejandro-ponce.vercel.app/ asi que podes probarlo.
-Todavia falta bastante para que quede terminado.
-Para acceder a la pagina ingrese estos datos.
+
 Usuario: admin
 Contraseña: 1234
 ---
@@ -29,7 +28,8 @@ Contraseña: 1234
 - 🛒 Sistema básico de carrito de compras.  
 - 🔍 Filtrado y visualización de productos.  
 - 🧭 Navegación con React Router DOM.  
-- 💅 Estilos personalizados (puedes mencionar CSS Modules, Tailwind, etc. si los usaste).  
+- 💅 Estilos personalizados (puedes mencionar CSS Modules, Tailwind, etc. si los usaste). 
+- Login de uisuarios. 
 
 ---
 
