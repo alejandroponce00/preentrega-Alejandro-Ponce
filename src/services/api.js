@@ -1,6 +1,6 @@
 // API Service - Manejo de llamadas a MockAPI
 
-const API_URL = 'https://apiresfull25023.vercel.app/api/products';
+const API_URL = 'https://api-rest-ropa.vercel.app/products';
 
 export const fetchProducts = async () => {
   try {
