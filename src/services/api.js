@@ -1,6 +1,6 @@
-// API Service - Manejo de llamadas a MockAPI
+// API 
 
-const API_URL = 'https://api-rest-ropa.vercel.app/products';
+const API_URL = 'https://backend-ropa-firebase.vercel.app/productos';
 
 export const fetchProducts = async () => {
   try {
@@ -30,7 +30,7 @@ export const fetchProducts = async () => {
   }
 };
 
-// Puedes agregar más funciones de API aquí
+// Puedo agregar más funciones de API aca
 export const fetchProductById = async (id) => {
   try {
     const response = await fetch(`${API_URL}/${id}`);
