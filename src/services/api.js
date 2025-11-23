@@ -52,3 +52,33 @@ export const fetchProductById = async (id) => {
     throw new Error(`Error al cargar el producto: ${error.message}`);
   }
 };
+
+export const createProduct = async (productData) => {
+  try {
+    const response = await fetch(API_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(productData),
+    });
+    if (!response.ok) {
+      throw new Error('Error al crear el producto');
+    }
+    return await response.json();
+  } catch (error) {
+    throw new Error(`Error en la API: ${error.message}`);
+  }
+};
+
+export const deleteProduct = async (id) => {
+  try {
+    const response = await fetch(`${API_URL}/${id}`, {
+      method: 'DELETE',
+    });
+    if (!response.ok) {
+      throw new Error('Error al eliminar el producto');
+    }
+    return await response.json();
+  } catch (error) {
+    throw new Error(`Error en la API: ${error.message}`);
+  }
+};
