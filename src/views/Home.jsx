@@ -38,7 +38,7 @@ function Home({ products, loading, error, addToCart, search, setSearch }) {
 
   return (
     <div>
-      <div className="mb-8">
+      <div className="items-center">
         <h2 className="text-3xl font-bold text-gray-900 mb-4">Nuestros Productos</h2>
         
         {/* Barra de búsqueda */}
