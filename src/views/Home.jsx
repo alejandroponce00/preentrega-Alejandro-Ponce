@@ -38,35 +38,35 @@ function Home({ products, loading, error, addToCart, search, setSearch }) {
 
   return (
     <div>
-      <div className="items-center">
-        <h2 className="text-3xl font-bold text-gray-900 mb-4">Nuestros Productos</h2>
-        
-        {/* Barra de búsqueda */}
-        <div className="mb-4">
-          <input
-            type="text"
-            placeholder="Buscar productos, marcas y más..."
-            value={search}
-            onChange={e => setSearch(e.target.value)}
-            className="w-full max-w-lg px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-        </div>
-
-        {/* Filtro de Categorías */}
-        <div className="flex flex-wrap gap-2">
-          {categories.map(category => (
-            <button
-              key={category}
-              onClick={() => setSelectedCategory(category)}
-              className={`px-4 py-2 rounded-lg transition capitalize ${
-                selectedCategory === category
-                  ? 'bg-blue-600 text-white'
-                  : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-300'
-              }`}
-            >
-              {category === 'all' ? 'Todos' : category}
-            </button>
-          ))}
+      <div className="sticky top-45 z-10 bg-gray-50 pt-2 pb-4 mb-8 flex flex-col items-center w-full shadow-sm">
+        <div className="w-full max-w-2xl flex flex-col items-center">
+          <h2 className="text-3xl font-bold text-gray-900 mb-4 text-center">Nuestros Productos</h2>
+          {/* Barra de búsqueda */}
+          <div className="mb-4 w-full">
+            <input
+              type="text"
+              placeholder="Buscar productos, marcas y más..."
+              value={search}
+              onChange={e => setSearch(e.target.value)}
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+          {/* Filtro de Categorías */}
+          <div className="flex flex-wrap gap-2 justify-center w-full">
+            {categories.map(category => (
+              <button
+                key={category}
+                onClick={() => setSelectedCategory(category)}
+                className={`px-4 py-2 rounded-lg transition capitalize ${
+                  selectedCategory === category
+                    ? 'bg-blue-600 text-white'
+                    : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-300'
+                }`}
+              >
+                {category === 'all' ? 'Todos' : category}
+              </button>
+            ))}
+          </div>
         </div>
       </div>
 
