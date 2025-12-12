@@ -38,7 +38,7 @@ function Home({ products, loading, error, addToCart, search, setSearch }) {
 
   return (
     <div>
-      <div className="sticky top-45 z-10 bg-gray-50 pt-2 pb-4 mb-8 flex flex-col items-center w-full shadow-sm">
+      <div className=" pt-2 pb-4 mb-8 flex flex-col items-center w-full shadow-sm bg-white/40 backdrop-blur-md  sticky top-0 z-50 border-b border-gray-200">
         <div className="w-full max-w-2xl flex flex-col items-center">
           <h2 className="text-3xl font-bold text-gray-900 mb-4 text-center">Nuestros Productos</h2>
           {/* Barra de búsqueda */}
